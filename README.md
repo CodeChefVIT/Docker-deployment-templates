@@ -1,65 +1,43 @@
 <p align="center"><a href="https://www.codechefvit.com" target="_blank"><img src="https://i.ibb.co/4J9LXxS/cclogo.png" width=160 title="CodeChef-VIT" alt="Codechef-VIT"></a>
 </p>
 
-<h2 align="center"> Project Title </h2>
+<h2 align="center"> Docker Deployment Templates </h2>
 <br/>
 
-> Include project description here.
+> One Stop repository for Docker Compose and Docker Templats for Deployment.
 
 ---
 
 [![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
-[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/CodeChefVIT/Docker-deployment-templates/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/https://avatars.githubusercontent.com/u/22132836?s=40&v=4)
 ## Features
-- Insert list of features here
+- Python (FastAPI)
 
 ## Screenshots
 <p align="center">
-<img src="https://i.ibb.co/VppxmWZ/cet.png" alt="Common-Entry-Test" width="400px"/>
+<img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" alt="Docker" width="400px"/>
 </p>
 
 
 ## Dependencies
- - < dependency >
- - < dependency >
-## Instructions
+ - Docker
+ - Docker Compose
 
-#### Directions to Install
-```sh
-$ git clone https://github.com/CodeChefVIT/<Project>
-$ cd <Project>
-$ npm install
-```
-#### Directions to Run
-```sh
-$ npm serve
-```
 ## Contributors
 <table>
 	<tr align="center" style="font-weight:bold">
 		<td>
-		John Doe
+		Vishesh Bansal
 		<p align="center">
-			<img src = "https://i.ibb.co/4J9LXxS/cclogo.png" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">
+			<img src = "https://avatars.githubusercontent.com/u/22132836?v=4" width="150" height="150" alt="Vishesh Bansal">
 		</p>
 			<p align="center">
-				<a href = "https://github.com/<GitHub-username>">
+				<a href = "https://github.com/VisheshBansal">
 					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
 				</a>
 			</p>
-		</td>
-				<td>
-		John Doe
-		<p align="center">
-			<img src = "https://i.ibb.co/4J9LXxS/cclogo.png" width="150" height="150" alt="Your Name Here (Insert Your Image Link In Src">
-		</p>
-			<p align="center">
-				<a href = "https://github.com/<GitHub-username>">
-					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
-				</a>
-			</p>
-		</td>
+		</td>			
 	</tr>
 </table>
 
