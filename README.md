@@ -13,6 +13,7 @@
 [![GitHub Super-Linter](https://github.com/CodeChefVIT/Docker-deployment-templates/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/https://avatars.githubusercontent.com/u/22132836?s=40&v=4)
 ## Features
 - Python (FastAPI, Flask)
+- Node (without Database Integration, with Database Integration(MongoDB and Mongo-Express))
 
 ## Screenshots
 <p align="center">
