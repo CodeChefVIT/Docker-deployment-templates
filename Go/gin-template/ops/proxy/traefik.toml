@@ -1,0 +1,41 @@
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+  [entryPoints.websecure]
+    address = ":443"
+
+
+# Ping configuration
+
+# Enable ping
+[ping]
+  entryPoint = "traefik"
+
+# Docker configuration backend
+
+[providers.docker]
+
+  # Required
+  # Default: "unix:///var/run/docker.sock"
+  #
+  # endpoint = "tcp://10.10.10.10:2375"
+
+  # Default host rule.
+  #
+  # Optional
+  # Default: "Host(`{{ normalize .Name }}`)"
+  #
+  defaultRule = "Host(`subdomain.domain.tld`)"
+  network = "web"
+
+[providers.file]
+  filename = "dynamic.yaml"
+
+
+[certificatesResolvers.myresolver.acme]
+  email = "name@example.com"
+  storage = "acme.json"
+  [certificatesResolvers.myresolver.acme.httpChallenge]
+    # used during the challenge
+    entryPoint = "web"
