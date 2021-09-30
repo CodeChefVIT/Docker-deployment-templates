@@ -4,7 +4,7 @@
 <h2 align="center"> Docker Deployment Templates </h2>
 <br/>
 
-> One Stop repository for Docker Compose and Docker Templats for Deployment.
+> One Stop repository for Docker Compose and Docker Templates for Deployment.
 
 ---
 
@@ -12,7 +12,7 @@
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
 [![GitHub Super-Linter](https://github.com/CodeChefVIT/Docker-deployment-templates/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/https://avatars.githubusercontent.com/u/22132836?s=40&v=4)
 ## Features
-- Python (FastAPI)
+- Python (FastAPI, Flask)
 
 ## Screenshots
 <p align="center">
