@@ -1,0 +1,26 @@
+defaultEntryPoints = ["http", "https"]
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+      [entryPoints.http.redirect]
+        entryPoint = "https"
+  [entryPoints.https]
+    address = ":443"
+      [entryPoints.https.tls]
+
+
+[acme]
+email = "test@example.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+  [acme.httpChallenge]
+  entryPoint = "http"
+[[acme.domains]]
+   main = "yourdomain.tld"
+   sans = ["subdomain.yourdomain.tld"]
+
+[docker]
+domain = "subdomain.yourdomain.tld"
+watch = true
+network = "web"
