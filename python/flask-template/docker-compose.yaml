@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  app:
+    build: ./app
+    links:
+      - mysql
+    ports:
+      - "5000:5000"
+
+   mysql:
+    container_name: mysql
+    build: ./db
+    restart: always
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    ports:
+    - 3306:3306
+networks:
+  web:
+    external: true
