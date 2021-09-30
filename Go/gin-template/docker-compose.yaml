@@ -1,0 +1,90 @@
+version: "3.7"
+
+networks:
+    web:
+        external: true
+        name: web
+    internal:
+        external: false
+
+services:
+    app:
+        build: 
+            context: .
+            dockerfile: ./ops/images/go.Dockerfile
+        command: ["/app/main"]  
+        container_name: app
+        environment: 
+            - ON_SERVER=${ON_SERVER}
+            - GIN_MODE=${GIN_MODE}
+            - LOG_MODE=${LOG_MODE}
+            - DB_URI=${DB_URI}
+            - PORT=${PORT}
+        depends_on: 
+            - db
+            - traefik
+        env_file: ./.env
+        labels:
+            - traefik.backend=app
+            - traefik.http.routers.app.rule=Host(`gin-learn.siddharthavarma.tech`) && PathPrefix(`/api/v1/`)
+            - traefik.http.routers.app.tls=true
+            - traefik.http.routers.middlewares=redirect@file
+            # - traefik.http.routers.app.entrypoints=web
+            - traefik.http.routers.app.tls.certresolver=myresolver
+            - traefik.docker.network=web
+            - traefik.port=8000
+            - traefik.enable=true
+        networks:
+            - web
+            - internal
+        ports: 
+            - 8000:8000
+        restart: always
+            
+    db:
+        image: "postgres:12.2-alpine"
+        container_name: db
+        restart: always
+        ports: 
+            - 5432:5432
+        env_file: ./.env
+        environment:
+            - POSTGRES_PASSWORD=${DB_PASS}
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_DB=${DB_NAME}
+        volumes:
+            - db-data:/var/lib/postgresql
+        labels:
+            - traefik.enable=false
+        networks:
+            - internal
+
+    traefik: 
+        image: traefik:v2.3
+        restart: always
+        container_name: traefik    
+        networks:
+            - web
+        ports:
+            - "80:80"
+            - "443:443"
+            - "8080:8080"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./ops/proxy/traefik.toml:/traefik.toml
+            - ./ops/proxy/acme.json:/acme.json
+            - ./letsencrypt:/letsencrypt
+            - ./ops/proxy/dynamic.yaml:/dynamic.yaml
+        labels:
+            - traefik.enable=true
+            - traefik.routers.api.rule=Host(`gin-learn.siddharthavarma.tech`)
+            - traefik.https.routers.api.service=api@internal
+            - traefik.port=8080
+            - traefik.http.routers.api.tls=true
+            - traefik.http.routers.api.tls.certresolver=myresolver
+            - traefik.http.routers.http-catchall.entrypoints=web
+            - traefik.http.routers.http-catchall.middlewares=redirect-to-https
+            - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+
+volumes:
+    db-data:    
