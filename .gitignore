@@ -4,3 +4,6 @@
 
 # Environment
 .env
+
+# Node Modules
+node_modules
