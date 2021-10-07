@@ -12,7 +12,14 @@
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
 [![GitHub Super-Linter](https://github.com/CodeChefVIT/Docker-deployment-templates/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/https://avatars.githubusercontent.com/u/22132836?s=40&v=4)
 ## Features
-- Python (FastAPI, Flask)
+### This repository contains the following Docker Compose and Docker Templates for Deployment.
+- Python 
+  - FastAPI
+  - Django
+  - Flask
+- NodeJS
+- Go 
+  - Gin
 
 ## Screenshots
 <p align="center">
@@ -23,6 +30,11 @@
 ## Dependencies
  - Docker
  - Docker Compose
+
+
+You'll need to have Docker installed. It's available on Windows, macOS and most distros of Linux. If you're new to Docker and want to learn it in detail check out the the offical [Docker Documentation](https://docs.docker.com/).
+
+If you're using Windows, it will be expected that you're following along inside of WSL or WSL 2. That's because we're going to be running shell commands. You can always modify these commands for PowerShell if you want.
 
 ## Contributors
 <table>
