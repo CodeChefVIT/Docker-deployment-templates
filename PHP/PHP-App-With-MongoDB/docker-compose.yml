@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    build: .
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 8000:80
+    depends_on:
+      - mongo
+    links: 
+      - "mongo:mongo"
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    # volumes:
+    #     - ./db:/data/db
+    ports:
+        - "27017:27017"
